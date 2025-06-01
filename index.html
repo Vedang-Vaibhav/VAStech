@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PC World</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.3.0/tsparticles.bundle.min.js"></script>
+
+  <style>
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10000; /* Higher than tsparticles */
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-content {
+      position: relative;
+      margin: 60px auto;
+      padding: 30px;
+      background-color: #1a1a1a;
+      width: 90%;
+      max-width: 1200px;
+      border-radius: 15px;
+      overflow-x: auto;
+      white-space: nowrap;
+      box-shadow: 0 0 30px rgba(255, 165, 0, 0.3);
+    }
+
+    .modal-content img {
+      height: 400px;
+      margin: 10px;
+      border-radius: 10px;
+      display: inline-block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .modal-content img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #ffa500;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .close-btn:hover {
+      color: #ff4444;
+    }
+
+    .product {
+      background: linear-gradient(145deg, #1c1c1c, #292929);
+      border: 1px solid #333;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 24px rgba(255, 165, 0, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: fadeInUp 0.8s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+      display: flex;
+      align-items: center;
+    }
+
+    /* Animate each product with delay */
+    .product:nth-of-type(1) { animation-delay: 0.1s; }
+    .product:nth-of-type(2) { animation-delay: 0.3s; }
+    .product:nth-of-type(3) { animation-delay: 0.5s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .product:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 10px 30px rgba(255, 165, 0, 0.3);
+    }
+
+    .product-thumb {
+      width: 70px;
+      height: 70px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-right: 20px;
+      box-shadow: 0 0 10px #ffa50033;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .product-thumb:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #ffa500cc;
+    }
+
+    .product-details {
+      flex: 1;
+    }
+
+    .product h3 {
+      font-size: 1.7rem;
+      color: #ffa500;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .product:hover h3 {
+      color: #ffcc66;
+      text-shadow: 0 0 8px #ffa500;
+    }
+
+    .product p {
+      color: #dcdcdc;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    #tsparticles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Back to Top Button -->
+<button onclick="scrollToTop()" id="backToTopBtn" title="Go to top">↑</button>
+
+
+  <header>
+    <div class="header-content">
+  <img src="ec08de36-583b-4b52-b3d6-18a1bd6f489f.jpg" alt="VAStech Logo" class="logo-circle" />
+  <div class="header-text">
+    <h1>VAStech</h1> 
+  </div>
+  <div class="email-banner">
+    <p1>
+     <div>
+  🖂 <strong>Email us to order:</strong><br>
+  <a href="mailto:vedvaib51@gmail.com" target="_blank" rel="noopener noreferrer" style="color:#ffa500; text-decoration: underline;">vedvaib51@gmail.com</a><br>
+  <strong>Or contact via WhatsApp:</strong><br>
+  <strong style="color:#25d366;">➤➤ 6202627382</strong>
+</div>
+
+    </p1>
+  </div>
+</div>
+
+    
+  </header>
+
+  <nav>
+    <!-- Optional nav links if you want to add 📧 -->
+  </nav>
+
+  <div class="container">
+    <h2>Featured Products</h2>
+
+    <div class="product">
+      <img src="budget-king.jpg" alt="Budget King" class="product-thumb" />
+      <div class="product-details">
+        <h3 id="openModal" role="button" aria-haspopup="dialog" tabindex="0">🔥 Budget😎King 🔥 (most popular) ₹32,000</h3>
+        <p>Ryzen 5 3600, GTX 1660 super, 16GB DDR4, 500GB NVMe SSD, 600W PSU</p>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="esport-players.jpg" alt="Esport Players" class="product-thumb" />
+      <div class="product-details">
+        <h3>Esport Players (1080p) ▄︻╦芫≡══-- 💥 ₹42,000</h3>
+        <p>Ryzen 5 5600, RX 6600 XT, 16GB DDR4, 500GB NVMe SSD, 550W PSU</p>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="1440p-entry.jpg" alt="1440p Entry Level Gaming" class="product-thumb" />
+      <div class="product-details">
+        <h3>🖥️✨1440p Entry Level Gaming✨🖥️ ₹53,000 </h3>
+        <p>Ryzen 5 5600X, RTX 3070, 16GB RAM, 512GB NVMe SSD, 750W PSU</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="popupModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+    <div class="modal-content">
+      <span class="close-btn" role="button" aria-label="Close modal">&times;</span>
+      <img src="1.png" alt="Gaming Beast X1 Image 1" />
+      <img src="2.png" alt="Gaming Beast X1 Image 2" />
+      <img src="3.png" alt="Gaming Beast X1 Image 3" />
+      <img src="4.png" alt="Gaming Beast X1 Image 4" />
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 PC World. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Modal logic
+    const openModal = document.getElementById("openModal");
+    const modal = document.getElementById("popupModal");
+    const closeBtn = document.querySelector(".close-btn");
+
+    openModal.addEventListener("click", () => {
+      modal.style.display = "block";
+      modal.focus();
+    });
+
+    // Allow keyboard enter to open modal as well
+    openModal.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        modal.style.display = "block";
+        modal.focus();
+      }
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+      openModal.focus();
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+        openModal.focus();
+      }
+    });
+
+    // Particle background setup (only once)
+    document.addEventListener("DOMContentLoaded", () => {
+      tsParticles.load("tsparticles", {
+        fullScreen: { enable: false },
+        background: {
+          color: {
+            value: "#0f0f0f"
+          }
+        },
+        particles: {
+          number: {
+            value: 70
+          },
+          color: {
+            value: "#ffa500"
+          },
+          shape: {
+            type: "circle"
+          },
+          opacity: {
+            value: 0.6
+          },
+          size: {
+            value: 3
+          },
+          move: {
+            enable: true,
+            speed: 1.5,
+            direction: "none",
+            outModes: {
+              default: "bounce"
+            }
+          },
+          links: {
+            enable: true,
+            color: "#ffa500",
+            distance: 100,
+            opacity: 0.4,
+            width: 1
+          }
+        }
+      });
+    });
+      // Scroll reveal effect
+  window.addEventListener('scroll', () => {
+    const products = document.querySelectorAll('.product');
+    const triggerPoint = window.innerHeight * 0.9;
+
+    products.forEach(product => {
+      const productTop = product.getBoundingClientRect().top;
+      if (productTop < triggerPoint) {
+        product.style.opacity = '1';
+        product.style.transform = 'translateY(0)';
+      }
+    });
+  });
+
+  // Back to top button logic
+  const topBtn = document.getElementById("backToTopBtn");
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+      topBtn.style.display = "block";
+    } else {
+      topBtn.style.display = "none";
+    }
+  };
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  </script>
+  <a href="https://wa.me/+916202627382" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp Chat" />
+</a>
+
+</body>
+</html>
