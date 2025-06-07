@@ -88,7 +88,7 @@ nav a:hover::after {
 
 /* Container and sections */
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: auto;
   padding: 50px 30px;
 }
