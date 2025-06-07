@@ -194,136 +194,64 @@ footer {
   height: 110px;
   border-radius: 7px;
   object-fit:cover;
-  @media (max-width: 600px) {
-  /* Container padding smaller for narrow screens */
-  .container {
-    padding: 20px 15px;
-  }
-
-  /* Header content stacked vertically with smaller padding */
-  .header-content {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 15px;
-    text-align: center;
-  }
-
-  /* Smaller logo */
-  .logo-circle {
-    width: 70px;
-    height: 70px;
-  }
-
-  /* Header title smaller font size */
-  .header-text h1 {
-    font-size: 2rem;
-    letter-spacing: 3px;
-  }
-
-  /* Navigation stacked vertically with spacing */
-  nav {
-    flex-direction: column;
-    gap: 15px;
-    padding: 10px 0;
-  }
-
-  nav a {
-    font-size: 1rem;
-  }
-
-  /* Product cards stacked vertically with smaller padding */
-  .product {
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-
-  /* Product thumbnail smaller */
-  .product-thumb {
-    width: 70px;
-    height: 85px;
-    margin-right: 15px;
-  }
-
-  /* Product title smaller font */
-  .product h3 {
-    font-size: 1.3rem;
-  }
-
-  /* Footer padding smaller */
-  footer {
-    padding: 20px 15px;
-    font-size: 0.9rem;
-  }
-
-  /* Email banner smaller and repositioned */
-  .email-banner {
-    top: 10px;
-    right: 10px;
-    font-size: 0.85rem;
-    padding: 8px 10px;
-  }
-
-  /* WhatsApp floating button smaller */
-  .whatsapp-float {
-    bottom: 15px;
-    right: 15px;
-    padding: 10px;
-  }
-
-  .whatsapp-float img {
-    width: 28px;
-    height: 28px;
-  }
-}
-/* Responsive Design for Mobile Devices */
+  /* 🔧 Mobile Responsive Fix */
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-    gap: 20px;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 15px;
+    text-align: center;
   }
 
   .header-text h1 {
     font-size: 2.2rem;
     letter-spacing: 2px;
-    text-align: center;
   }
 
   nav {
     flex-direction: column;
-    gap: 15px;
-    padding: 10px 0;
+    gap: 10px;
+    padding: 10px;
   }
 
   .container {
-    padding: 30px 20px;
+    padding: 20px 15px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    padding-left: 10px;
+    margin-bottom: 20px;
   }
 
   .product {
     padding: 20px;
+    margin-bottom: 20px;
   }
 
   .product h3 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    text-align: center;
   }
 
   .product p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    text-align: center;
   }
 
   .product-thumb {
-    width: 70px;
+    display: block;
+    margin: 10px auto;
+    width: 80px;
     height: 90px;
-    margin-right: 15px;
   }
 
   .email-banner {
-    top: 10px;
-    right: 10px;
-    font-size: 0.85rem;
-    padding: 8px 12px;
+    position: static;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    text-align: center;
   }
 
   .whatsapp-float {
@@ -337,5 +265,3 @@ footer {
     height: 30px;
   }
 }
-
-
