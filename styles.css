@@ -196,72 +196,20 @@ footer {
   object-fit:cover;
   /* 🔧 Mobile Responsive Fix */
 @media (max-width: 768px) {
-  .header-content {
+  .product-section {
+    padding: 0 10px;
+  }
+
+  .product-container {
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    padding: 20px 15px;
-    text-align: center;
-  }
-
-  .header-text h1 {
-    font-size: 2.2rem;
-    letter-spacing: 2px;
-  }
-
-  nav {
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-  }
-
-  .container {
-    padding: 20px 15px;
-  }
-
-  h2 {
-    font-size: 1.8rem;
-    padding-left: 10px;
-    margin-bottom: 20px;
+    width: 100%;
   }
 
   .product {
-    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     margin-bottom: 20px;
-  }
-
-  .product h3 {
-    font-size: 1.3rem;
-    text-align: center;
-  }
-
-  .product p {
-    font-size: 0.9rem;
-    text-align: center;
-  }
-
-  .product-thumb {
-    display: block;
-    margin: 10px auto;
-    width: 80px;
-    height: 90px;
-  }
-
-  .email-banner {
-    position: static;
-    margin-top: 15px;
-    font-size: 0.9rem;
-    text-align: center;
-  }
-
-  .whatsapp-float {
-    bottom: 15px;
-    right: 15px;
-    padding: 10px;
-  }
-
-  .whatsapp-float img {
-    width: 30px;
-    height: 30px;
   }
 }
