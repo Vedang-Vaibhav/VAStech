@@ -190,16 +190,16 @@
     <div class="product">
       <img src="esport-players.jpg" alt="Esport Players" class="product-thumb" />
       <div class="product-details">
-        <h3>Esport Players (1080p) ▄︻╦芫≡══-- 💥 ₹42,000</h3>
-        <p>Ryzen 5 5600, RX 6600 XT, 16GB DDR4, 500GB NVMe SSD, 550W PSU</p>
+       <h3 id="openModal2" role="button" aria-haspopup="dialog" tabindex="0">Budget Esport Players (1080p) ▄︻╦芫≡══-- 💥 ₹28,000</h3>
+        <p>i5-10400f, GTX 1050ti, 16GB DDR4, 500GB NVMe SSD, 450W PSU</p>
       </div>
     </div>
 
     <div class="product">
       <img src="1440p-entry.jpg" alt="1440p Entry Level Gaming" class="product-thumb" />
       <div class="product-details">
-        <h3>🖥️✨1440p Entry Level Gaming✨🖥️ ₹53,000 </h3>
-        <p>Ryzen 5 5600X, RTX 3070, 16GB RAM, 512GB NVMe SSD, 750W PSU</p>
+        <h3 id="openModal3" role="button" aria-haspopup="dialog" tabindex="0">🖥️✨Programing and Gaming✨🖥️ ₹35,000</h3>
+        <p>Ryzen 5 5500, GTX 1070, 16GB RAM, 512GB NVMe SSD, 550W PSU</p>
       </div>
     </div>
   </div>
@@ -214,42 +214,62 @@
       <img src="4.png" alt="Gaming Beast X1 Image 4" />
     </div>
   </div>
-
+<div id="popupModal2" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle2" tabindex="-1">
+  <div class="modal-content">
+    <span class="close-btn" role="button" aria-label="Close modal">&times;</span>
+    <img src="esport1.png" alt="Esport Image 1" />
+    <img src="esport2.png" alt="Esport Image 2" />
+  </div>
+</div>
+<div id="popupModal3" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle3" tabindex="-1">
+  <div class="modal-content">
+    <span class="close-btn" role="button" aria-label="Close modal">&times;</span>
+    <img src="1440p1.png" alt="1440p Image 1" />
+    <img src="1440p2.png" alt="1440p Image 2" />
+  </div>
+</div>
   <footer>
     <p>&copy; 2025 PC World. All rights reserved.</p>
   </footer>
 
   <script>
     // Modal logic
-    const openModal = document.getElementById("openModal");
-    const modal = document.getElementById("popupModal");
-    const closeBtn = document.querySelector(".close-btn");
+function setupModal(openId, modalId) {
+  const openBtn = document.getElementById(openId);
+  const modal = document.getElementById(modalId);
+  const closeBtn = modal.querySelector('.close-btn');
 
-    openModal.addEventListener("click", () => {
+  openBtn.addEventListener("click", () => {
+    modal.style.display = "block";
+    modal.focus();
+  });
+
+  openBtn.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
       modal.style.display = "block";
       modal.focus();
-    });
+    }
+  });
 
-    // Allow keyboard enter to open modal as well
-    openModal.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        modal.style.display = "block";
-        modal.focus();
-      }
-    });
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+    openBtn.focus();
+  });
 
-    closeBtn.addEventListener("click", () => {
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
       modal.style.display = "none";
-      openModal.focus();
-    });
+      openBtn.focus();
+    }
+  });
+}
 
-    window.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.style.display = "none";
-        openModal.focus();
-      }
-    });
+// Call setup for each modal
+setupModal("openModal", "popupModal");
+setupModal("openModal2", "popupModal2");
+setupModal("openModal3", "popupModal3");
+
 
     // Particle background setup (only once)
     document.addEventListener("DOMContentLoaded", () => {
